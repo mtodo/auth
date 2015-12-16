@@ -40,10 +40,13 @@ class Signup(db: Database, system: ActorSystem) extends ScalatraServlet with Fut
 
   post("/") {
     val user = User(None, params("email"), params("password"))
-    db.run((users returning users.map(_.id)) += user)
-
     new AsyncResult { val is =
-      db.run(users.result)
+      db.run((users returning users.map(_.id)) += user)
+        .map { v => redirect(url("/done")) }
     }
+  }
+
+  get("/done") {
+    "Successfully registered"
   }
 }
