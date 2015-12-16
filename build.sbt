@@ -26,6 +26,18 @@ libraryDependencies ++= Seq(
     "org.eclipse.jetty"         %   "jetty-webapp"                % "9.3.+"
 )
 
+// Slick & Database driver
+libraryDependencies ++= Seq(
+    "com.typesafe.slick"        %%  "slick"                       % "3.1.+",
+    "com.h2database"            %   "h2"                          % "1.3.175"
+)
+
+// Allow usage of AsyncResult
+libraryDependencies ++= Seq(
+    "com.typesafe.akka"         %%  "akka-actor"                  % "2.4.+"
+)
+
+
 // Uncomment to use Akka
 //libraryDependencies += "com.typesafe.akka" %% "akka-actor" % "2.3.11"
 

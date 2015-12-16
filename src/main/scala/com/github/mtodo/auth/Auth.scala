@@ -29,5 +29,6 @@ object Auth extends App with LazyLogging {
 
   server.start
   logger.info(s"Listening on port :$port..")
+
   server.join
 }
